@@ -1,7 +1,8 @@
 class Solution:
     def suggestedProducts(self, products: List[str], searchWord: str) -> List[List[str]]:
         products.sort()
-        left, right = 0, len(products) - 1
+        left = 0
+        right = len(products) - 1
         result = []
         for i in range(len(searchWord)):
             search = searchWord[i]
