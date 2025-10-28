@@ -16,3 +16,5 @@ class Solution(object):
         letter_logs.sort(key=lambda x: (x.split()[1:], x.split()[0]))
         result = letter_logs + digit_logs
         return result
+
+        
