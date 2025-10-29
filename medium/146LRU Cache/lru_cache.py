@@ -1,31 +1,22 @@
-from Collections import OrderedDict
+from collections import OrderedDict
 
-class LRUCache(object):
+class LRUCache(OrderedDict):
 
-    def __init__(self, capacity):
-        """
-        :type capacity: int
-        """
+    def __init__(self, capacity: int):
         self.capacity = capacity
 
-    def get(self, key):
-        """
-        :type key: int
-        :rtype: int
-        """
+    def get(self, key: int) -> int:
         if key in self:
             self.move_to_end(key)
             return self[key]
         else:
             return -1
 
-    def put(self, key, value):
-        """
-        :type key: int
-        :type value: int
-        :rtype: None
-        """
+    def put(self, key: int, value: int) -> None:
         self[key] = value
+        if len(self) > self.capacity:
+            self.popitem(last=False)
+        self.move_to_end(key)
 
 
 
